@@ -38,6 +38,26 @@ $$ \lim_{n \to \infty} P\left(\frac{\bar{X} - \mu}{\frac{\sigma}{\sqrt{n}}} \leq
 
 Where $\( \Phi(x) \)$ is the cumulative distribution function (CDF) of the standard normal distribution. This equation states that as the sample size $\( n \)$ increases, the standardized sample mean converges in distribution to the standard normal distribution.
 
+#### Proof:
+
+1. **Mean Centering**:
+   
+   Subtracting the mean $\( \mu \)$ from each data point $\( X_i \)$ shifts the distribution so that it is centered around 0.
+
+2. **Scaling by Standard Deviation**:
+
+   Dividing by the standard deviation $\( \sigma \)$ scales the data so that the spread (variability) of the distribution is consistent regardless of the original units of measurement.
+
+3. **Preservation of Relative Distances**:
+
+   - **Proof for Mean**: When $\( X = \mu \)$, $\( Z = \frac{\mu - \mu}{\sigma} = 0 \)$. Thus, the mean is correctly mapped to 0.
+   
+   - **Proof for Standard Deviation**: The spread of the distribution remains consistent as the standard deviation scales all data points by the same factor.
+   
+   - **Proof for Intermediate Values**: For any intermediate value $\( X_i \)$, the Z-score places it in terms of standard deviations from the mean, preserving the relative distances between data points.
+
+Therefore, the Z-score transformation centers data around the mean and scales it to have a standard deviation of 1, preserving the relative distances between data points.
+
 It's important to assess the distribution of the data before and after transformation to ensure that extreme values or outliers do not unduly influence the results. Robustness checks, such as sensitivity analysis, can help evaluate the impact of outliers on the analysis.
 
 ## Empirical Normalization:
@@ -56,7 +76,20 @@ For each data point $\( X \)$ in the dataset, apply the following transformation
    - $\( X_{\text{min}} \)$: Minimum value of the dataset.
    - $\( X_{\text{max}} \)$: Maximum value of the dataset.
 
-   This transformation scales the data to fall within the range [0, 1].
+#### Proof:
+
+Let $\( X_1, X_2, ..., X_n \)$ be a dataset with $\( n \)$ observations.
+
+2. **Preservation of Relative Distances**:
+
+   - **Proof for Minimum Value**: When $\( X = X_{\text{min}} \), \( X_{\text{norm}} = \frac{X_{\text{min}} - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}} = 0 \)$. Thus, the minimum value is correctly mapped to 0.
+   
+   - **Proof for Maximum Value**: When $\( X = X_{\text{max}} \), \( X_{\text{norm}} = \frac{X_{\text{max}} - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}} = 1 \)$. Thus, the maximum value is correctly mapped to 1.
+   
+   - **Proof for Intermediate Values**: For any intermediate value $\( X_i \), \( 0 \leq X_{\text{norm}} \leq 1 \)$, preserving the relative distances between data points.
+
+Therefore, empirical normalization scales data within the range [0, 1] while preserving the relative distances between data points.
+
 
 ### Difference from Standard Normal Distribution (Z-Score):
 
