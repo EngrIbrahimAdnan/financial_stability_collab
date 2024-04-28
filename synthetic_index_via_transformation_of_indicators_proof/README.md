@@ -1,3 +1,7 @@
+## Normalization of Indicators
+
+In the pursuit of aggregating the financial stability index, numerous indicators contribute to the economy's stability. However, the high multidimensionality of these indicators poses a challenge in capturing their collective impact accurately. To address this, a synthetic index must be derived from these basic indicators. Given that each indicator possesses its unique measurement unit, normalization is typically employed prior to aggregation. This README elucidates and validates the mathematical methodologies utilized to address this challenge effectively.
+
 ### Central Limit Theorem (CLT) Explanation
 
 The Central Limit Theorem (CLT) is a fundamental concept in statistics that states that the sampling distribution of the sample mean approaches a normal distribution as the sample size increases, regardless of the shape of the population distribution.
