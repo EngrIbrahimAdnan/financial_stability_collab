@@ -2,7 +2,7 @@
 
 In the pursuit of aggregating the financial stability index, numerous indicators contribute to the economy's stability. However, the high multidimensionality of these indicators poses a challenge in capturing their collective impact accurately. To address this, a synthetic index must be derived from these basic indicators. Given that each indicator possesses its unique measurement unit, normalization is typically employed prior to aggregation. This README elucidates and validates the mathematical methodologies utilized to address this challenge effectively. 
 
-### Standard Normal Distribution (Z-score):
+## Standard Normal Distribution (Z-score):
 The first approach is Standard normal distribution (Z-score) which is a common method used to standardize variables to have a mean of 0 and a standard deviation of 1. This transformation is valuable when dealing with variables that have different units or scales, allowing for comparability and facilitating further statistical analysis. 
 
 #### Characteristics:
@@ -40,3 +40,28 @@ Where $\( \Phi(x) \)$ is the cumulative distribution function (CDF) of the stand
 
 It's important to assess the distribution of the data before and after transformation to ensure that extreme values or outliers do not unduly influence the results. Robustness checks, such as sensitivity analysis, can help evaluate the impact of outliers on the analysis.
 
+## Empirical Normalization:
+
+Empirical normalization, also known as sample normalization or min-max scaling, is a technique used to scale numeric data within a specific range. Unlike the standard normal distribution (Z-score), which standardizes data based on the mean and standard deviation of a distribution, empirical normalization rescales data based on its observed minimum and maximum values.
+
+#### Characteristics:
+
+For each data point $\( X \)$ in the dataset, apply the following transformation:
+   
+   $$\ X_{\text{norm}} = \frac{X - X_{\text{min}}}{X_{\text{max}} - X_{\text{min}}} \$$
+
+   Where:
+   - $\( X_{\text{norm}} \)$: Normalized value of $\( X \)$.
+   - $\( X \)$: Original data point.
+   - $\( X_{\text{min}} \)$: Minimum value of the dataset.
+   - $\( X_{\text{max}} \)$: Maximum value of the dataset.
+
+   This transformation scales the data to fall within the range [0, 1].
+
+### Difference from Standard Normal Distribution (Z-Score):
+
+- **Mean and Standard Deviation**: Empirical normalization does not involve mean and standard deviation calculations like the standard normal distribution (Z-score). Instead, it relies solely on the observed minimum and maximum values of the data.
+
+- **Range**: Empirical normalization scales data to a specific range (e.g., [0, 1]), while the standard normal distribution (Z-score) standardizes data to have a mean of 0 and a standard deviation of 1.
+
+- **Use Cases**: Empirical normalization is commonly used when the distribution of the data is unknown or does not follow a normal distribution, whereas the standard normal distribution (Z-score) is used when working with normally distributed data.
