@@ -135,44 +135,27 @@ The FSI is calculated using the following steps:
 1. **Normalization**:
    Normalize each sub-index within the BSI, FVI, and RECI using either standard normal distribution (Z-score) or empirical normalization.
 
-2. **Weighting**:
-   Assign weights to each normalized sub-index to reflect its relative importance in measuring financial stability.
-
 3. **Aggregation**:
-   Combine the normalized and weighted sub-indices from each composite index to form a single composite index for financial stability.
+   Combine the normalized sub-indices from each composite index to form a single composite index for financial stability.
 
 4. **Formulation of the Financial Stability Index (FSI)**:
    Combine the composite indices for BSI, FVI, and RECI to form the FSI using a weighted sum approach. Each sub-index is scaled by the reciprocal of the total number of sub-indices within its respective composite index to ensure appropriate weighting.
 
-The formula for calculating the FSI is as follows:
+The formula for calculating the FSI is calculated with the aggregation of each respective sub-index:
 
-$$\ FSI = \frac{1}{3} \left( \frac{BSI_1 + BSI_2 + ... + BSI_5}{5} \right) + \frac{1}{3} \left( \frac{FVI_1 + FVI_2 + ... + FVI_8}{8} \right) + \frac{1}{3} \left( \frac{RECI_1 + RECI_2}{2} \right) \$$
+$$ BSI = \frac{1}{n} \sum_{i=1}^{n} BSI_i $$
 
-If we're assigning equal weights to each composite index (i.e., $\( w_1 = w_2 = w_3 = \frac{1}{3} \)$), the relative contributions of each sub-index to the FSI would indeed vary based on the number of sub-indices within each composite index. the number of sub-indices within each composite index will influence their relative contributions to the overall Financial Stability Index (FSI) when considering the weighting scheme. 
+$$ FVI = \frac{1}{m} \sum_{i=1}^{m} FVI_i $$
 
+$$ RECI = \frac{1}{j} \sum_{i=1}^{j} RECI_i $$
 
-   - Finally, validate the Financial Stability Index to ensure that it effectively captures the concept of financial stability and provides meaningful insights. This may involve comparing the FSI with other measures of financial stability, conducting sensitivity analyses, and seeking feedback from experts in the field.
+where n,m, and j are 5,8, and 2, respectively. Consequently, the FSI would be:
 
-The specific details of normalization, weighting, and aggregation will depend on your data, research objectives, and the context in which you're analyzing financial stability. It's essential to carefully consider these factors and ensure that your methodology is transparent, robust, and aligned with the concept of financial stability.
+$\ FSI = w_1 \times BSI + w_2 \times FVI + w_3 \times RECI \$
 
-Here's a simplified example of how you might combine the normalized and weighted sub-indices:
+Also can be represented as:
+$$\ FSI = w_1 \left( \frac{BSI_1 + BSI_2 + ... + BSI_5}{5} \right) +  w_2 \left( \frac{FVI_1 + FVI_2 + ... + FVI_8}{8} \right) +  w_3 \left( \frac{RECI_1 + RECI_2}{2} \right) \$$
 
-\[ FSI = w_1 \times BSI + w_2 \times FVI + w_3 \times RECI \]
-
-Where:
-- \( BSI \), \( FVI \), and \( RECI \) are the normalized composite indices for Banking Soundness, Financial Vulnerability, and Regional Economic Climate, respectively.
-- \( w_1 \), \( w_2 \), and \( w_3 \) are the weights assigned to each composite index.
+Suppose we're assigning equal weights to each composite index (i.e., $\( w_1 = w_2 = w_3 = \frac{1}{3} )\$ while ). In this case, the relative contributions of each sub-index to the FSI would indeed vary based on the number of sub-indices within each composite index. the number of sub-indices within each composite index will influence their relative contributions to the overall Financial Stability Index (FSI) when considering the weighting scheme. 
 
 The specific details of normalization, weighting, and aggregation will depend on your data, research objectives, and the context in which you're analyzing financial stability. It's essential to carefully consider these factors and ensure that your methodology is transparent, robust, and aligned with the concept of financial stability.
-
-
-In this formulation, each sub-index is divided by the total number of sub-indices within its respective composite index to ensure that the weights are appropriately scaled based on the number of indicators.
-
-This approach ensures that the relative contributions of each sub-index to the FSI are adjusted to account for differences in the number of sub-indices within each composite index. However, it's essential to consider whether equal weighting is appropriate or if different weighting schemes should be used based on the perceived importance or relevance of each composite index to the concept of financial stability.
-
-
-## Validation
-Validate the FSI to ensure that it effectively captures the concept of financial stability and provides meaningful insights. Consider comparing the FSI with other measures of financial stability and conducting sensitivity analyses.
-
-## Conclusion
-The FSI provides a comprehensive assessment of financial stability by integrating various indicators from multiple domains. It serves as a valuable tool for policymakers, researchers, and stakeholders in monitoring and managing financial stability risks.
